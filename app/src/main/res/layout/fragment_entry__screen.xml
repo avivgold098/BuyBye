@@ -24,18 +24,38 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sign in                                             or"
+            android:text="sign in"
+
             android:textSize="20dp"
 
-           />
-        <Button
+            />
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sign up"
-            android:id="@+id/SignIn"
-            android:textColor="@android:color/holo_blue_dark"
-            android:background="@android:color/transparent"
+            android:text="or"
+            android:layout_marginLeft="100dp"
+            android:textSize="20dp"
+
             />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sign up"
+                android:layout_gravity="right"
+                android:gravity="top"
+                android:id="@+id/SignUp"
+                android:textColor="@android:color/holo_blue_dark"
+                android:background="@android:color/transparent"
+                />
+
+        </LinearLayout>
+
+
 
 
     </LinearLayout>
