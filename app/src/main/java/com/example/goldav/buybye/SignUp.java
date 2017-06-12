@@ -8,31 +8,32 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Entry_Screen.OnFragmentInteractionListener} interface
+ * {@link SignUp.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Entry_Screen#newInstance} factory method to
+ * Use the {@link SignUp#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Entry_Screen extends Fragment  {
+public class SignUp extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
+    // TODO: Rename and change types of parameters
 
 
     private OnFragmentInteractionListener mListener;
 
-    public Entry_Screen() {
+    public SignUp() {
+        // Required empty public constructor
     }
 
 
-    // TODO: Rename and change types and number of parameters
-    public static Entry_Screen newInstance() {
-        Entry_Screen fragment = new Entry_Screen();
+    public static SignUp newInstance() {
+        SignUp fragment = new SignUp();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -41,35 +42,15 @@ public class Entry_Screen extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        MainActivity.CurrentFragment="Entry";
-        View view =inflater.inflate(R.layout.fragment_entry__screen, container, false);
-        Button LogIn=(Button) view.findViewById(R.id.LogIn);
-        LogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Todo: data base check
-               mListener.onFragmentInteraction(true);
-            }
-        });
-        Button SignUp=(Button) view.findViewById(R.id.SignUp);
-        SignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Todo: data base check
-                mListener.SignUp();
-            }
-        });
-
-        return view;
+        return inflater.inflate(R.layout.fragment_sign_up, container, false);
     }
+
+    // TODO: Rename method, update argument and hook method into UI event
 
 
     @Override
@@ -99,10 +80,17 @@ public class Entry_Screen extends Fragment  {
         mListener = null;
     }
 
-
-
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(boolean ok);
-        void SignUp();
+        void onFragmentInteraction(Uri uri);
     }
 }

@@ -1,64 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.goldav.buybye.MainActivity"
     android:orientation="vertical"
-   >
+    tools:context="com.example.goldav.buybye.SignUp">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to BuyBye"
+        android:text="Sign Up:"
         android:textSize="30dp"
-        android:gravity="center"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sign in"
-
-            android:textSize="20dp"
-
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="or"
-            android:layout_marginLeft="100dp"
-            android:textSize="20dp"
-
-            />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sign up"
-                android:layout_gravity="right"
-                android:gravity="top"
-                android:id="@+id/SignUp"
-                android:textColor="@android:color/holo_blue_dark"
-                android:background="@android:color/transparent"
-                />
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
+        android:textStyle="bold"
+        android:gravity="center"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,9 +24,35 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/SignInEmail"/>
-
-
+            android:id="@+id/SignUpEmail"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SignUpFirstName"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SignUpLastName"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,22 +66,31 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/SignInPass"/>
-
+            android:id="@+id/SignUpPass"
+            android:password="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone:"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SignUpPhone"/>
     </LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in "
-        android:layout_gravity="center"
-        android:id="@+id/LogIn"
-        />
-    
-
+        android:text="Send"
+        android:layout_gravity="center"/>
 
 
 
     <!-- TODO: Update blank fragment layout -->
-
 
 </LinearLayout>
