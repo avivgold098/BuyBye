@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.goldav.buybye.model.User;
+
 public class MainActivity extends Activity implements Entry_Screen.OnFragmentInteractionListener, SignUp.OnFragmentInteractionListener {
     public static  String CurrentFragment="";
     FragmentTransaction tran;
@@ -37,8 +39,10 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+
+
+   @Override
+    public void onFragmentInteraction() {
 
     }
 }

@@ -36,9 +36,10 @@
                 android:text="price:"
                 android:textStyle="bold"
                 android:textSize="20dp"/>
-            <TextView
+            <EditText
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:maxLength="15"
                 android:id="@+id/price"
                 android:gravity="center"/>
         </LinearLayout>

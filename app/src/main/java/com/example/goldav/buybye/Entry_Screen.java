@@ -1,6 +1,7 @@
 package com.example.goldav.buybye;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import android.widget.Button;
  * to handle interaction events.
  * Use the {@link Entry_Screen#newInstance} factory method to
  * create an instance of this fragment.
- *///checkech
+ */
 public class Entry_Screen extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,7 +56,9 @@ public class Entry_Screen extends Fragment  {
         LogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Todo: data base check
+                MyAlert al = new MyAlert();
+                al.Message="ag is the king";
+                al.show(getFragmentManager(),"tag");
                mListener.onFragmentInteraction(true);
             }
         });
@@ -63,7 +66,6 @@ public class Entry_Screen extends Fragment  {
         SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Todo: data base check
                 mListener.SignUp();
             }
         });
