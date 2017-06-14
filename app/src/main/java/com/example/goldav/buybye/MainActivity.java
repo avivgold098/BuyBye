@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 
 import com.example.goldav.buybye.model.User;
 
@@ -44,5 +45,12 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
    @Override
     public void onFragmentInteraction() {
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
     }
 }

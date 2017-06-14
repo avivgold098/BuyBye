@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.goldav.buybye.model.MCrypt;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -76,7 +78,10 @@ public class Entry_Screen extends Fragment  {
 
     @Override
     public void onAttach(Context context) {
+
         super.onAttach(context);
+        MCrypt c;
+        c.encrypt()
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
