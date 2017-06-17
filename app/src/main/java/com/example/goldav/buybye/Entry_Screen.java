@@ -6,12 +6,24 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
-import com.example.goldav.buybye.model.MCrypt;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.concurrent.Executor;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -25,7 +37,7 @@ import com.example.goldav.buybye.model.MCrypt;
 public class Entry_Screen extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
+    private FirebaseAuth mAuth=mAuth = FirebaseAuth.getInstance();
 
     private OnFragmentInteractionListener mListener;
 
@@ -53,15 +65,45 @@ public class Entry_Screen extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         MainActivity.CurrentFragment="Entry";
-        View view =inflater.inflate(R.layout.fragment_entry__screen, container, false);
+        final View view =inflater.inflate(R.layout.fragment_entry__screen, container, false);
         Button LogIn=(Button) view.findViewById(R.id.LogIn);
+
+
+
+
         LogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyAlert al = new MyAlert();
-                al.Message="ag is the king";
-                al.show(getFragmentManager(),"tag");
-               mListener.onFragmentInteraction(true);
+                EditText Email = (EditText) view.findViewById(R.id.SignInEmail);
+                EditText pass = (EditText) view.findViewById(R.id.SignInPass);
+                FirebaseUser currentUser;
+                mAuth.createUserWithEmailAndPassword(Email.getText().toString(), pass.getText().toString())
+                        .addOnCompleteListener(getActivity() , new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d("TAG", "createUserWithEmail:success");
+                                    MyAlert my = new MyAlert();
+                                    my.Message="work";
+                                    my.show(getFragmentManager(),"");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    mListener.onFragmentInteraction(true);
+
+
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w("TAG", "createUserWithEmail:failure", task.getException());
+                                    MyAlert my = new MyAlert();
+                                    my.Message="no work";
+                                    my.show(getFragmentManager(),"");
+
+                                }
+
+                                // ...
+                            }
+                        });
+
             }
         });
         Button SignUp=(Button) view.findViewById(R.id.SignUp);
@@ -80,8 +122,6 @@ public class Entry_Screen extends Fragment  {
     public void onAttach(Context context) {
 
         super.onAttach(context);
-        MCrypt c;
-        c.encrypt()
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
