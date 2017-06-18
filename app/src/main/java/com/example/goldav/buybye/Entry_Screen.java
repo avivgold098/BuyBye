@@ -37,7 +37,7 @@ import static android.content.ContentValues.TAG;
 public class Entry_Screen extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private FirebaseAuth mAuth=mAuth = FirebaseAuth.getInstance();
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -77,7 +77,7 @@ public class Entry_Screen extends Fragment  {
                 EditText Email = (EditText) view.findViewById(R.id.SignInEmail);
                 EditText pass = (EditText) view.findViewById(R.id.SignInPass);
                 FirebaseUser currentUser;
-                mAuth.createUserWithEmailAndPassword(Email.getText().toString(), pass.getText().toString())
+                MainActivity.mAuth.createUserWithEmailAndPassword(Email.getText().toString(), pass.getText().toString())
                         .addOnCompleteListener(getActivity() , new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -87,7 +87,7 @@ public class Entry_Screen extends Fragment  {
                                     MyAlert my = new MyAlert();
                                     my.Message="work";
                                     my.show(getFragmentManager(),"");
-                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    FirebaseUser user = MainActivity.mAuth.getCurrentUser();
                                     mListener.onFragmentInteraction(true);
 
 

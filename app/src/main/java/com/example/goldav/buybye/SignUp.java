@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.goldav.buybye.model.Model;
 import com.example.goldav.buybye.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -26,7 +32,7 @@ import com.example.goldav.buybye.model.User;
 public class SignUp extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    User user = new User();
     public SignUp() {
     }
 
@@ -46,34 +52,71 @@ public class SignUp extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_sign_up, container, false);
-       Button send= (Button) view.findViewById(R.id.send);
+       final View v =inflater.inflate(R.layout.fragment_sign_up, container, false);
+       Button send= (Button) v.findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText email = (EditText) view.findViewById(R.id.SignInEmail);
-                EditText pass = (EditText) view.findViewById(R.id.SignInPass);
-                EditText firstName = (EditText) view.findViewById(R.id.SignUpFirstName);
-                EditText lastName = (EditText) view.findViewById(R.id.SignUpLastName);
-                EditText phone = (EditText) view.findViewById(R.id.SignUpPhone);
+                EditText email = (EditText) v.findViewById(R.id.SignUpEmail);
+                EditText pass = (EditText) v.findViewById(R.id.SignUpPass);
+                EditText firstName = (EditText) v.findViewById(R.id.SignUpFirstName);
+                EditText lastName = (EditText) v.findViewById(R.id.SignUpLastName);
+                EditText phone = (EditText) v.findViewById(R.id.SignUpPhone);
+                EditText userName = (EditText) v.findViewById(R.id.SignUpUserName);
+                Log.d("tag",firstName.getText().toString());
+                Log.d("tag",lastName.getText().toString());
+                Log.d("tag",pass.getText().toString());
+                Log.d("tag",email.getText().toString());
+                Log.d("tag",phone.getText().toString());
+
                 Log.d("tag",""+(CheckEditTextsEmpty(new EditText[]{email, firstName, pass, phone, lastName})));
-                if(CheckEditTextsEmpty(new EditText[]{email, firstName, pass, phone, lastName}))
+                if(CheckEditTextsEmpty(new EditText[]{email, firstName, pass, phone, lastName,userName}))
                 {
                     MyAlert al = new MyAlert();
                     al.Message="You cannot leavy any cell empty";
                     al.show(getFragmentManager(),"tag");
                 }
-                User user = new User();
-                user.setUser(firstName.getText().toString(),lastName.getText().toString(),pass.getText().toString(),
-                        email.getText().toString(),phone.getText().toString());
-                //Todo send data to the server
-                mListener.onFragmentInteraction();
+                else
+                {
+                    user.setUser(firstName.getText().toString(),lastName.getText().toString(),
+                            email.getText().toString(),phone.getText().toString(),userName.getText().toString());
+                    MainActivity.mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString())
+                            .addOnCompleteListener(getActivity() , new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d("TAG", "createUserWithEmail:success");
+                                        MyAlert my = new MyAlert();
+                                        my.Message="work";
+                                        my.show(getFragmentManager(),"");
+                                        //FirebaseUser auth = MainActivity.mAuth.getCurrentUser();
+                                        Model model = Model.instace;
+                                        model.addUser(user);
+
+
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w("TAG", "createUserWithEmail:failure", task.getException());
+                                        MyAlert my = new MyAlert();
+                                        my.Message="no work";
+                                        my.show(getFragmentManager(),"");
+
+                                    }
+
+                                }
+                            });
+
+                }
+
+
 
             }
         });
 
         
-        return view;
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

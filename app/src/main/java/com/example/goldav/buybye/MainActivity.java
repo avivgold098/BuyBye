@@ -8,9 +8,11 @@ import android.util.Log;
 import android.view.Menu;
 
 import com.example.goldav.buybye.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends Activity implements Entry_Screen.OnFragmentInteractionListener, SignUp.OnFragmentInteractionListener {
     public static  String CurrentFragment="";
+    public static FirebaseAuth mAuth= FirebaseAuth.getInstance();
     FragmentTransaction tran;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

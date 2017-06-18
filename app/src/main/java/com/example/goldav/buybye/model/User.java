@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
     public String FirstName;
     public String LastName;
-    public String pass;
+    public String userName;
     public String Email;
     public String Phone;
     public List<Item> items;
@@ -18,11 +18,11 @@ public class User {
     {
     }
 
-    public void setUser( String FirstName, String LastName,String pass,String Email,String Phone)
+    public void setUser( String FirstName, String LastName,String Email,String Phone,String userName)
     {
         this.FirstName=FirstName;
+        this.userName=userName;
         this.LastName=LastName;
-        this.pass=pass;
         this.Email=Email;
         this.Phone=Phone;
     }
