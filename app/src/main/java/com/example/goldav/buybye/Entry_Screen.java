@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.concurrent.Executor;
 
 import static android.content.ContentValues.TAG;
+import static java.lang.Character.isLetter;
 
 
 /**
@@ -151,5 +152,22 @@ public class Entry_Screen extends Fragment  {
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(boolean ok);
         void SignUp();
+    }
+    public static boolean onlyLettersAndNumbers(String str)
+    {
+        for (int i=0;i<str.length();i++)
+        {
+            Log.d("tag",""+str.charAt(i));
+            if(!(isLetter(str.charAt(i))||(Character.isDigit(str.charAt(i)))))
+                return false;
+
+        }
+        return true;
+    }
+    public static boolean isNumber(char ch)
+    {
+        if(((ch>'a'&&ch<'z'))||(ch<'Z'&&ch>'A'))
+            return true;
+        return false;
     }
 }

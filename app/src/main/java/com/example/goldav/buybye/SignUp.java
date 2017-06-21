@@ -75,7 +75,10 @@ public class SignUp extends Fragment {
                     MyAlert al = new MyAlert();
                     al.Message="You cannot leavy any cell empty";
                     al.show(getFragmentManager(),"tag");
+
                 }
+                else if(!Entry_Screen.onlyLettersAndNumbers(userName.getText().toString()))
+                    userName.setError("only letters and numbers");
                 else
                 {
                     user.setUser(firstName.getText().toString(),lastName.getText().toString(),
@@ -94,6 +97,7 @@ public class SignUp extends Fragment {
                                         //FirebaseUser auth = MainActivity.mAuth.getCurrentUser();
                                         Model model = Model.instace;
                                         model.addUser(user);
+
 
 
                                     } else {

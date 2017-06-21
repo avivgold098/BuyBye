@@ -18,7 +18,7 @@ public class ModelFirebase {
         Map<String, Object> value = new HashMap<>();
         value.put("FirstName", user.FirstName);
         value.put("LastName", user.LastName);
-        value.put("UserName",user.userName)
+        value.put("UserName",user.userName);
         value.put("Email", user.Email);
         value.put("Phone", user.Phone);
         value.put("items",user.items);

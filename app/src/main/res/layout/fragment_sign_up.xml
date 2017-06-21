@@ -12,20 +12,24 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:gravity="center"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Name:"/>
+            android:text="User Name:" />
+
         <EditText
+            android:id="@+id/SignUpUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/SignUpUserName"/>
+            />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -16,6 +16,8 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
     FragmentTransaction tran;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String str = "aviv";
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tran =  getFragmentManager().beginTransaction();
