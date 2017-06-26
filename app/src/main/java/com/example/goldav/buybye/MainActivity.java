@@ -2,15 +2,15 @@ package com.example.goldav.buybye;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 
-import com.example.goldav.buybye.model.User;
+import com.example.goldav.buybye.model.Item;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends Activity implements Entry_Screen.OnFragmentInteractionListener, SignUp.OnFragmentInteractionListener {
+public class MainActivity extends Activity implements Entry_ScreenFragment.OnFragmentInteractionListener,
+        SignUpFragment.OnFragmentInteractionListener, AddItemFragment.OnFragmentInteractionListener {
     public static  String CurrentFragment="";
     public static FirebaseAuth mAuth= FirebaseAuth.getInstance();
     FragmentTransaction tran;
@@ -21,7 +21,7 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tran =  getFragmentManager().beginTransaction();
-        Entry_Screen listFragment = Entry_Screen.newInstance();
+        Entry_ScreenFragment listFragment = Entry_ScreenFragment.newInstance();
         tran.add(R.id.main_container, listFragment);
         tran.commit();
     }
@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
 
     @Override
     public void SignUp() {
-        SignUp listFragment = SignUp.newInstance();
+        SignUpFragment listFragment = SignUpFragment.newInstance();
          tran = getFragmentManager().beginTransaction() ;
         tran.replace(R.id.main_container,listFragment);
         tran.addToBackStack("");
@@ -56,5 +56,10 @@ public class MainActivity extends Activity implements Entry_Screen.OnFragmentInt
          super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu,menu);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Item item) {
+
     }
 }

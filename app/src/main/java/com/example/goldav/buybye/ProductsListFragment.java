@@ -9,26 +9,24 @@
 //import android.view.View;
 //import android.view.ViewGroup;
 //import android.widget.BaseAdapter;
-//import android.widget.CheckBox;
 //import android.widget.EditText;
 //import android.widget.ImageView;
-//import android.widget.TextView;
 //
 //import static android.R.attr.data;
 //
 //
-//public class ProductsList extends Fragment {
+//public class ProductsListFragment extends Fragment {
 //
 //
 //    private OnFragmentInteractionListener mListener;
 //
-//    public ProductsList() {
+//    public ProductsListFragment() {
 //        // Required empty public constructor
 //    }
 //
 //
-//    public static ProductsList newInstance(String param1, String param2) {
-//        ProductsList fragment = new ProductsList();
+//    public static ProductsListFragment newInstance() {
+//        ProductsListFragment fragment = new ProductsListFragment();
 //        Bundle args = new Bundle();
 //
 //        fragment.setArguments(args);
@@ -37,14 +35,16 @@
 //
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
+//
 //        super.onCreate(savedInstanceState);
+//        MainActivity.CurrentFragment="List";
 //
 //    }
 //
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
+//
 //        return inflater.inflate(R.layout.fragment_products_list, container, false);
 //    }
 //

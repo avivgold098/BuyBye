@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up:"
+        android:text="Item:"
         android:textSize="30dp"
         android:textStyle="bold"
         android:gravity="center"/>
@@ -21,11 +21,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Name:" />
+            android:text="Item Name:" />
 
         <EditText
-            android:id="@+id/SignUpUserName"
-            android:layout_width="match_parent"
+            android:id="@+id/ItemName"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             />
     </LinearLayout>
@@ -38,11 +38,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email:"/>
+            android:text="Price:"/>
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/SignUpEmail"/>
+            android:id="@+id/ItemPrice"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,61 +52,69 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="First Name:"/>
+            android:text="Description:"/>
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/SignUpFirstName"/>
+            android:id="@+id/itemDesc"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Name:"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/SignUpLastName"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password:"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/SignUpPass"
-            android:password="true"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Phone:"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/SignUpPhone"/>
-    </LinearLayout>
-    <Button
+        android:orientation="horizontal">
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/send"
-        android:text="Send"
-        android:layout_gravity="center"/>
+        android:text="Location:"/>
+     <ImageButton
+         android:layout_width="50dp"
+         android:layout_height="30dp"
+         android:scaleType="fitXY"
+         android:background="@null"
+         android:id="@+id/locatonIamge"
+
+         android:src="@drawable/location"/>
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemLocation"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="picture:"/>
+
+        <ImageButton
+            android:id="@+id/galleryItem"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:background="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/gallery" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:background="@null"
+            android:id="@+id/itemCemra"
+            android:src="@drawable/camera"/>
+
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/itemImage"
+        android:src="@drawable/camera"/>
+
+
+
 
 
 </LinearLayout>
